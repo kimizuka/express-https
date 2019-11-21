@@ -1,0 +1,8 @@
+# 秘密鍵を生成する
+$ openssl genrsa 2048 > server.key
+
+# 証明書署名要求を生成する
+$ openssl req -new -key server.key > server.csr 
+
+# サーバー証明書を生成する（有効期限は適当に10年）
+openssl x509 -in server.csr -days 3650 -req -signkey server.key > server.crt
