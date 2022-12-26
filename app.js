@@ -8,6 +8,6 @@ const options = {
   cert: fs.readFileSync(path.resolve(__dirname, './https/server.crt'))
 };
 
-app.use("/", express.static(__dirname + "/public"));
+app.use('/', express.static(__dirname + '/public'));
 
-const server = https.createServer(options, app).listen(3000);
+https.createServer(options, app).listen(3000);
